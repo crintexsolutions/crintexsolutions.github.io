@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/openmentor/static/css/main.12e93821.css",
-    "main.js": "/openmentor/static/js/main.dfb14db7.js",
+    "main.js": "/openmentor/static/js/main.0acf04a0.js",
     "static/media/redux.cjs": "/openmentor/static/media/redux.7edfc461ab353f1712ab.cjs",
     "index.html": "/openmentor/index.html",
     "main.12e93821.css.map": "/openmentor/static/css/main.12e93821.css.map",
-    "main.dfb14db7.js.map": "/openmentor/static/js/main.dfb14db7.js.map"
+    "main.0acf04a0.js.map": "/openmentor/static/js/main.0acf04a0.js.map"
   },
   "entrypoints": [
     "static/css/main.12e93821.css",
-    "static/js/main.dfb14db7.js"
+    "static/js/main.0acf04a0.js"
   ]
 }
