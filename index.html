@@ -1,115 +1,291 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crintex Solutions LTD</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="mystyle.css">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Crintex Solutions LTD — Driven by Innovation</title>
+  <meta name="description" content="Crintex Solutions — training, products and business intelligence for brands and teams.">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f1724; /* deep navy */
+      --card:#0b1220;
+      --muted:#9aa4b2;
+      --accent:#6ee7b7; /* mint */
+      --accent-2:#60a5fa; /* sky */
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      --container:1100px;
+      --shadow: 0 6px 18px rgba(2,6,23,0.6);
+      color-scheme: dark;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Roboto,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.45;background:linear-gradient(180deg,#071028 0%, #081124 45%, #07101a 100%);color:#e6eef6}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--container);margin:0 auto;padding:28px}
+
+    /* NAV */
+    header{position:sticky;top:12px;z-index:40}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:8px 14px;background:transparent}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:54px;height:54px;object-fit:contain;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));padding:6px}
+    .brand h1{font-size:18px;margin:0;font-weight:700;letter-spacing:0.2px}
+    nav ul{display:flex;gap:14px;align-items:center;margin:0;padding:0;list-style:none}
+    nav a.btn{padding:10px 14px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06)}
+    .cta{display:flex;gap:10px}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#04202d;padding:10px 14px;border-radius:10px;font-weight:600}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:9px}
+
+    /* hero */
+    .hero{padding:48px 0}
+    .hero-grid{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:34px;border-radius:20px;box-shadow:var(--shadow);backdrop-filter:blur(6px)}
+    .logo{width:96px;height:96px;object-fit:contain;border-radius:12px}
+    .hero h2{font-size:34px;margin:8px 0 10px}
+    .hero p.lead{color:var(--muted);margin:0 0 18px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+    /* visual panel */
+    .visual{padding:18px;border-radius:12px;background:linear-gradient(135deg, rgba(96,165,250,0.08), rgba(110,231,183,0.04));display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center}
+    .visual img{max-width:100%;border-radius:10px;box-shadow: 0 8px 30px rgba(2,6,23,0.6)}
+    .kpis{display:flex;gap:12px;flex-wrap:wrap}
+    .kpi{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:8px 12px;border-radius:10px;text-align:center}
+    .kpi strong{display:block;font-size:18px}
+
+    /* services */
+    .services{margin:44px 0}
+    .services h3{font-size:20px;margin:0 0 18px}
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--card);padding:18px;border-radius:14px;box-shadow:0 6px 20px rgba(2,6,23,0.5);border:1px solid rgba(255,255,255,0.03)}
+    .service-card img{width:64px;height:64px;object-fit:contain;border-radius:10px}
+    .service-card h4{margin:8px 0 6px}
+    .learn-more{display:inline-block;margin-top:10px;padding:8px 12px;border-radius:10px;font-weight:600;border:1px solid rgba(255,255,255,0.04)}
+
+    /* clients */
+    .clients{margin:40px 0}
+    .clients .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;align-items:center}
+    .client-logo img{max-width:100%;filter:grayscale(1) opacity(0.9);transition:filter .25s ease,transform .25s}
+    .client-logo img:hover{filter:none;transform:translateY(-6px)}
+
+    /* footer */
+    footer{padding:30px 0 40px;margin-top:22px}
+    .newsletter{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:18px}
+    .newsletter form{display:flex;gap:8px}
+    .newsletter input{padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit;min-width:220px}
+    .newsletter button{padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;color:#04202d;font-weight:700}
+    .footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:18px}
+    .footer-grid h5{margin:0 0 8px}
+    .socials a{margin-right:8px;display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:var(--glass);border:1px solid rgba(255,255,255,0.03)}
+
+    /* responsive */
+    @media (max-width:900px){
+      .hero-grid{grid-template-columns:1fr;}
+      .service-grid{grid-template-columns:repeat(2,1fr)}
+      .clients .grid{grid-template-columns:repeat(3,1fr)}
+      .footer-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:520px){
+      .service-grid{grid-template-columns:1fr}
+      .clients .grid{grid-template-columns:repeat(2,1fr)}
+      nav ul{display:none}
+      .nav{padding:12px 8px}
+    }
+
+    /* small helpers */
+    .muted{color:var(--muted);font-size:13px}
+    .eyebrow{font-size:13px;text-transform:uppercase;color:var(--muted);letter-spacing:1px}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03)}
+
+  </style>
 </head>
 <body>
-    
+  <div class="wrap">
+    <header>
+      <div class="nav" role="navigation" aria-label="Main navigation">
+        <div class="brand">
+          <img src="assets/img/cslogo.png" alt="Crintex Solutions logo">
+          <div>
+            <h1>Crintex Solutions</h1>
+            <div class="muted">Driven by innovation · Powered by tech</div>
+          </div>
+        </div>
+
+        <nav>
+          <ul>
+            <li><a href="#services" class="muted">Services</a></li>
+            <li><a href="#clients" class="muted">Clients</a></li>
+            <li><a href="#footer" class="muted">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="cta">
+          <a class="btn-primary" href="https://witslens.com" target="_blank" rel="noopener">Witslens</a>
+          <a class="btn-ghost" href="techcurious.html">Techcurious</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
     <section class="hero">
-        <div class="hero-content">
-            <img src="assets/img/cslogo.png" alt="Company Logo" class="logo">
-            <h1>Driven by Innovation <br> Powered by Tech</h1>
-            <p>Explore the latest updates enhancing your TechWave experience.</p>
-            <div class="hero-buttons">
-                <a href="https://witslens.com" class="btn btn-primary">Witslens</a>
-                <a href="techcurious.html" class="btn btn-secondary">Techcurious</a>
+      <div class="hero-grid">
+        <div class="hero-card">
+          <div style="display:flex;align-items:center;gap:16px">
+            <img class="logo" src="assets/img/cslogo.png" alt="Crintex logo">
+            <div>
+              <div class="eyebrow">Welcome</div>
+              <h2>We craft digital products that move business forward</h2>
+              <p class="lead">From training and developer upskilling (Techcurious) to interactive learning experiences (Witslens) and business intelligence consulting — we partner with teams to deliver measurable outcomes.</p>
+              <div class="hero-actions">
+                <a class="btn-primary" href="https://witslens.com" target="_blank" rel="noopener">Explore Witslens</a>
+                <a class="btn-ghost" href="techcurious.html">Join Techcurious</a>
+                <a class="pill" href="#services">See services</a>
+              </div>
             </div>
+          </div>
+
+          <hr style="margin:18px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)">
+
+          <div class="kpis" aria-hidden="true">
+            <div class="kpi"><strong>9+</strong><span class="muted">Years experience</span></div>
+            <div class="kpi"><strong>20+</strong><span class="muted">Training cohorts</span></div>
+            <div class="kpi"><strong>100+</strong><span class="muted">Projects delivered</span></div>
+          </div>
         </div>
-    </section>        
-    
-    <!-- Services Section -->
+
+        <aside class="visual">
+          <!-- Replace this mock image with a screenshot or product shot -->
+          <img src="assets/img/witslens-snapshot.png" alt="Witslens preview" loading="lazy">
+          <div class="muted" style="font-size:13px;text-align:center">Product snapshot · interactive quizzes, dashboards & progress tracking</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
     <section id="services" class="services">
-        <h2>Our Services</h2>
-        <div class="service-container">
-            <!-- Add as many service cards as needed -->
-            <div class="service-card">
-                <img src="" alt="Software 1">
-                <h3>Witslens</h3>
-                <p>Enhance learning with quizzes, games, tools, and more.</p>
-                <a href="assets/img/witslens.png" class="learn-more">Learn More</a>
-            </div>
-            <div class="service-card">
-                <img src="assets/img/techcurious.png" alt="Software 2">
-                <h3>Techcurious</h3>
-                <p>Train professionals and students in top tech skills.</p>
-                <a href="techcurious.html" class="learn-more">Learn More</a>
-            </div>
-            <div class="service-card">
-                <img src="assets/img/web.jpg" alt="Software 3">
-                <h3>Business Intelligence</h3>
-                <p>Expert consultancy for brands to achieve their goals.</p>
-                <a href="#" class="learn-more">Learn More</a>
-            </div>
-        </div>
+      <h3>Our Services</h3>
+      <div class="service-grid">
+        <article class="card service-card" aria-labelledby="s1">
+          <img src="assets/img/witslens.png" alt="Witslens logo" loading="lazy">
+          <h4 id="s1">Witslens — Learning Experiences</h4>
+          <p class="muted">Interactive quizzes, microlearning, gamified assessments — built to scale for schools and enterprises.</p>
+          <a class="learn-more" href="https://witslens.com" target="_blank" rel="noopener">Explore product →</a>
+        </article>
+
+        <article class="card service-card" aria-labelledby="s2">
+          <img src="assets/img/techcurious.png" alt="Techcurious logo" loading="lazy">
+          <h4 id="s2">Techcurious — Training & Workshops</h4>
+          <p class="muted">Hands-on workshops, bootcamps and executive training in product development, UX and data.</p>
+          <a class="learn-more" href="techcurious.html">Learn about workshops →</a>
+        </article>
+
+        <article class="card service-card" aria-labelledby="s3">
+          <img src="assets/img/web.jpg" alt="Business intelligence" loading="lazy">
+          <h4 id="s3">Business Intelligence & Consulting</h4>
+          <p class="muted">Strategy, analytics and implementation to turn data into growth.</p>
+          <a class="learn-more" href="#">Request a consult →</a>
+        </article>
+      </div>
     </section>
 
-    <!-- Our Clients Section -->
+    <!-- CLIENTS -->
     <section id="clients" class="clients">
-        <h2>Our Clients</h2>
-        <div class="client-container">
-            <!-- Add client logos or images as needed -->
-            <div class="client-logo">
-                <img src="assets/img/GRAMOTT.png" alt="Client 1">
-            </div>
-            <div class="client-logo">
-                <img src="assets/img/agroexpress.jpg" alt="Client 2">
-            </div>
-        </div>
+      <h3>Trusted by</h3>
+      <div class="grid">
+        <div class="client-logo"><img src="assets/img/GRAMOTT.png" alt="Gramott" loading="lazy"></div>
+        <div class="client-logo"><img src="assets/img/agroexpress.jpg" alt="Agroexpress" loading="lazy"></div>
+        <div class="client-logo"><img src="assets/img/client3.png" alt="Client 3" loading="lazy"></div>
+        <div class="client-logo"><img src="assets/img/client4.png" alt="Client 4" loading="lazy"></div>
+        <div class="client-logo"><img src="assets/img/client5.png" alt="Client 5" loading="lazy"></div>
+        <div class="client-logo"><img src="assets/img/client6.png" alt="Client 6" loading="lazy"></div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="newsletter">
-            <h2>Subscribe to our newsletter</h2>
-            <form>
-                <input type="email" placeholder="Enter your email">
-                <button type="submit">Subscribe</button>
-            </form>
+    <!-- FOOTER -->
+    <footer id="footer">
+      <div class="newsletter card" style="align-items:center">
+        <div style="flex:1">
+          <h4 style="margin:0 0 6px">Subscribe to our newsletter</h4>
+          <p class="muted" style="margin:0">Product updates, workshop announcements and case studies — once a month.</p>
         </div>
-        <div class="footer-content">
-            <div>
-                <h3>Product</h3>
-                <ul>
-                    <li><a href="#">Features</a></li>
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">Download</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3>Resources</h3>
-                <ul>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">FAQs</a></li>
-                    <li><a href="#">Support</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3>Company</h3>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3>Follow Us</h3>
-                <div class="social-icons">
-                    <a href="https://web.facebook.com/crintexsolution/"><i class="fab fa-facebook"></i></a>
-                    <a href="https://x.com/witslens"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/crintexsolutionsltd/"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/company/crintex-solutions/"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-        </div>
-        <p>&copy; 2024 Crintex Solutions LTD. All rights reserved.</p>
-    </footer>
+        <form id="newsletterForm" style="margin-left:auto" aria-label="Subscribe to newsletter">
+          <input id="emailInput" type="email" placeholder="you@company.com" required aria-required="true">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
 
-    <script src="myscript.js"></script>
+      <div class="footer-grid">
+        <div>
+          <h5>Product</h5>
+          <ul style="list-style:none;padding:0;margin:0">
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Download</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Resources</h5>
+          <ul style="list-style:none;padding:0;margin:0">
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Company</h5>
+          <ul style="list-style:none;padding:0;margin:0">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Follow us</h5>
+          <div class="socials" style="margin-top:8px">
+            <a href="https://web.facebook.com/crintexsolution/" aria-label="Facebook" target="_blank" rel="noopener">🔵</a>
+            <a href="https://x.com/witslens" aria-label="Twitter" target="_blank" rel="noopener">🐦</a>
+            <a href="https://www.instagram.com/crintexsolutionsltd/" aria-label="Instagram" target="_blank" rel="noopener">📸</a>
+            <a href="https://www.linkedin.com/company/crintex-solutions/" aria-label="LinkedIn" target="_blank" rel="noopener">💼</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;color:var(--muted);font-size:13px">&copy; 2025 Crintex Solutions LTD. All rights reserved.</div>
+    </footer>
+  </div>
+
+  <script>
+    // Smooth-scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const href = a.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      })
+    })
+
+    // Newsletter form handling (mock)
+    const form = document.getElementById('newsletterForm');
+    form.addEventListener('submit', e=>{
+      e.preventDefault();
+      const email = document.getElementById('emailInput').value.trim();
+      if(!email || !/^[\w.+-]+@[\w-]+\.[\w.-]+$/.test(email)){
+        alert('Please enter a valid email address');
+        return;
+      }
+      // show success state
+      const btn = form.querySelector('button');
+      btn.disabled = true;btn.textContent = 'Subscribed ✓';
+      setTimeout(()=>{btn.disabled=false;btn.textContent='Subscribe';form.reset()},2200);
+      // TODO: replace with actual POST to your backend / API
+    });
+
+    // small accessibility: focus visible outline
+    document.addEventListener('keydown', e=>{
+      if(e.key === 'Tab') document.documentElement.classList.add('show-focus');
+    });
+  </script>
 </body>
 </html>
