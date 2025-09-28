@@ -1,317 +1,213 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechCurious | Learn Web Development, Data Analytics, and Machine Learning</title>
-    <link href="https://fonts.googleapis.com/css2?family=Uniform+Rounded:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <link rel="stylesheet" href="mistyle.css">
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <style>
-        body {
-            font-family: 'Uniform Rounded', Arial, sans-serif;
-            box-sizing: border-box;
-            transition: background-color 0.5s ease-in-out;
-            color: #1f1d1d;
-            width: 90%;
-            margin: 0 auto;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TechCurious — Web Dev · Data · ML</title>
+  <meta name="description" content="TechCurious: practical bootcamps in Web Development, Data Analytics and Machine Learning. Flexible payment plans, corporate training, and hands-on projects." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7fafc; --card:#ffffff; --muted:#6b7280; --accent:#ff6b35; --accent-2:#06b6d4; --radius:12px;
+      --container:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial;color:#0f1724;background:linear-gradient(180deg,#ffffff 0%, #f1f5f9 100%)}
+    a{color:inherit}
+    .wrap{max-width:var(--container);margin:28px auto;padding:20px}
 
-        .container {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
+    /* top link */
+    .back{font-size:13px;margin-bottom:12px;display:inline-flex;gap:8px;align-items:center}
+    .back a{color:var(--muted);text-decoration:none}
 
-        .text-container {
-            width: 50%;
-            padding-right: 20px;
-            box-sizing: border-box;
-            transition: opacity 0.5s ease-in-out;
-        }
+    /* header */
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand img{width:56px;height:56px;border-radius:10px;object-fit:contain}
+    .brand h1{font-size:18px;margin:0}
+    .tag{color:var(--muted);font-size:13px}
 
-        .text-container p {
-            line-height: 1.6;
-        }
+    /* layout */
+    .container{display:grid;grid-template-columns:1fr 420px;gap:22px;align-items:start}
+    .card{background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:0 6px 20px rgba(15,23,42,0.06);border:1px solid rgba(15,23,42,0.03)}
 
-        .text-container ul li{
-            margin-bottom: 1em;
-        }
+    /* main content */
+    .hero h2{margin:0 0 8px;font-size:24px}
+    .hero p{color:var(--muted);margin-top:0}
+    .list ul{padding-left:18px;color:var(--muted)}
 
-        .image-container {
-            width: 50%;
-            text-align: center;
-            transition: opacity 0.5s ease-in-out;
-        }
+    /* image */
+    .image-container img{width:100%;border-radius:10px;object-fit:cover}
 
-        .image-container img {
-            width: 80%;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+    /* modules grid */
+    .modules{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+    .module{padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,107,53,0.03),transparent);border:1px solid rgba(255,107,53,0.06)}
+    .module h3{margin:8px 0 6px}
+    .module p{margin:0;color:var(--muted);font-size:14px}
+    .module table{width:100%;margin-top:10px;font-size:14px}
+    .table-label{color:var(--muted);font-weight:600;padding-right:8px;width:36%}
 
-        .menu-options {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin-top: 20px;
-        }
+    /* corporate & installments */
+    .section{display:flex;gap:18px;align-items:flex-start;margin-top:20px}
+    .section img{width:220px;border-radius:8px}
+    .discounts ul{color:var(--muted);padding-left:18px}
 
-        .menu-options div {
-            cursor: pointer;
-            padding: 1.5em;
-        }
+    /* curriculum */
+    .curriculum{margin-top:18px}
+    .curriculum select{padding:8px;border-radius:8px;border:1px solid rgba(15,23,42,0.06)}
+    .curriculum iframe{width:100%;height:540px;border-radius:10px;border:1px solid rgba(15,23,42,0.04);margin-top:12px}
 
-        .menu-options div a{
-            text-decoration: none;
-            color: #1f1d1d;
-        }
+    /* footer */
+    .footer{text-align:center;color:var(--muted);font-size:13px;margin-top:28px}
 
-        .menu-options div a:hover,
-        .menu-options div h3:hover,
-        .menu-options div p:hover {
-            cursor: pointer;
-            color: #f04b09;
-            font-weight: 600;
-            font-size: smaller;
-            transition: color 0.5s ease-in-out, font-weight 0.5s ease-in-out, font-size 0.5s ease-in-out;
-        }
+    /* responsive */
+    @media (max-width:980px){
+      .container{grid-template-columns:1fr 320px}
+      .modules{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:720px){
+      .container{grid-template-columns:1fr}
+      .modules{grid-template-columns:1fr}
+      .section{flex-direction:column}
+      .section img{width:100%}
+      .curriculum iframe{height:420px}
+    }
 
-        .menu-options img {
-            width: 85%;
-            object-fit: contain;
-        }
-
-        #installments-section {
-            font-size: 1.5em;
-            font-weight: 700;
-            text-align: center;
-            padding: 20px;
-            background-color: #ffffff; /* Add a background color for better visibility */
-            color: #201f1f; /* Set text color to white for better contrast */
-            cursor: pointer;
-            margin-top: 20px;
-        }
-
-        .curriculum-wrapper {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .curriculum-wrapper embed {
-            width: 80%;
-            height: 500px;
-        }
-        #select-curriculum {
-            padding: 8px;
-        }
-
-        table {
-            width: 100%;
-            margin-top: 20px;
-            border: #fff;
-        }
-
-        .table-label {
-            padding: 8px 0;
-            color: #555;
-            font-weight: bold;
-        }
-
-        table td {
-            padding: 8px 10px;
-            text-align: left;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 20px;
-        }
-
-        @media only screen and (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .text-container,
-            .image-container {
-                width: 100%;
-                padding: 0;
-            }
-
-            .image-container {
-                margin-top: 20px;
-            }
-
-            .menu-options {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .menu-options div {
-                padding: 1.5em;
-                margin-bottom: 20px;
-            }
-
-            .menu-options img {
-                width: 100%;
-            }
-
-            .curriculum-wrapper embed {
-                width: 100%;
-                height: 400px;
-            }
-            #installments-section {
-                margin-top: 0; /* Remove top margin on mobile for better spacing */
-            }
-        }
-
-    </style>
+    /* micro interactions */
+    .cta{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;font-weight:700}
+    .link-muted{color:var(--muted);font-size:14px}
+  </style>
 </head>
-
 <body>
-    <div><br /><a href="index.html"><<< Back to homepage</a></div>
+  <div class="wrap">
+    <div class="back">◀️ <a href="index.html">Back to homepage</a></div>
+
+    <header>
+      <div class="brand">
+        <img src="assets/img/techcurious.png" alt="TechCurious logo" loading="lazy">
+        <div>
+          <h1>TechCurious</h1>
+          <div class="tag">Practical bootcamps · remote-friendly · cohort-based</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;align-items:center">
+        <a class="link-muted" href="https://paystack.com/pay/techcuriousweb" target="_blank" rel="noopener">Pay for Web</a>
+        <a class="link-muted" href="https://paystack.com/pay/techcuriousda" target="_blank" rel="noopener">Pay for Data</a>
+        <a class="cta" href="https://paystack.com/pay/techcuriousml" target="_blank" rel="noopener">Enroll</a>
+      </div>
+    </header>
+
     <div class="container">
-        <!-- Left Container for Text -->
-        <div class="text-container fade-in">
-            <h1>TECHCURIOUS</h1>
-            <p>Explore the world of Web Development, Data Analytics, and Machine Learning with TechCurious. Acquire valuable skills that empower you to build elegant websites, analyze massive datasets, and deploy intelligent models.</p>
-            <h2>Learning Outcomes</h2>
+      <main>
+        <section class="card hero">
+          <h2>Learn Web Development, Data Analytics & Machine Learning</h2>
+          <p>Hands-on programs focused on real projects, industry-standard tools, and mentorship. Pick a track, follow the curriculum, and build a portfolio you can show employers.</p>
+
+          <div class="list">
+            <h4 style="margin-top:16px">Learning outcomes</h4>
             <ul>
-                <li>Develop responsive and user-friendly websites.</li>
-                <li>Uncover actionable insights from complex datasets.</li>
-                <li>Build and deploy intelligent machine learning models.</li>
-                <li>Create dynamic data visualizations for effective communication.</li>
-                <li>Collaborate with technical and business teams, bridging the gap between code and understanding.</li>
+              <li>Build responsive user interfaces and full-stack applications.</li>
+              <li>Analyze datasets and communicate insights using charts and dashboards.</li>
+              <li>Train, evaluate and deploy machine learning models responsibly.</li>
+              <li>Collaborate across product teams and explain technical trade-offs.</li>
             </ul>
-        </div>
+          </div>
 
-        <!-- Right Container for Image -->
-        <div class="image-container fade-in">
-            <img src="assets/img/techcurious.png" alt="TechCurious Image">
-        </div>
-    </div>
+          <div class="modules" aria-label="Program modules">
+            <article class="module">
+              <h3>Web Development</h3>
+              <p>HTML · CSS · JavaScript · React · Node · Deployment</p>
+              <table>
+                <tr><td class="table-label">Duration</td><td>6 months</td></tr>
+                <tr><td class="table-label">Cost</td><td>₦300,000</td></tr>
+              </table>
+            </article>
 
-    <!-- Menu Options Section -->
-    <div class="menu-options fade-in">
-        <div>
-            <a href="https://paystack.com/pay/techcuriousweb">
-                <img src="assets/img/web.jpg" alt="Techcurious' Web Development Program" />
-                <h3>Web Development</h3>
-                <p>Build elegant and responsive websites. Learn HTML, CSS, JavaScript, and popular frameworks like React and Bootstrap. Explore the fundamentals of web design and user experience.</p>
-                <table>
-                    <tr>
-                        <td class="table-label">Duration</td>
-                        <td>6 months</td>
-                    </tr>
-                    <tr>
-                        <td class="table-label">Cost</td>
-                        <td>300,000 NGN</td>
-                    </tr>
-                </table>
-            </a>
-        </div>
-        <div>
-            <a href="http://paystack.com/pay/techcuriousda">
-                <img src="assets/img/da.jpg" alt="Techcurious' Data Analytics Program" />
-                <h3>Data Analytics</h3>
-                <p>Uncover actionable insights from massive datasets. Dive into data cleaning, analysis, and visualization using tools like Python, Pandas, NumPy, and Matplotlib. Gain skills in data-driven decision-making.</p>
-                <table>
-                    <tr>
-                        <td class="table-label">Duration</td>
-                        <td>4 months</td>
-                    </tr>
-                    <tr>
-                        <td class="table-label">Cost</td>
-                        <td>240,000 NGN</td>
-                    </tr>
-                </table>
-            </a>
-        </div>
-        <div>
-            <a href="https://paystack.com/pay/techcuriousml">
-                <img src="assets/img/ml.jpg" alt="Techcurious' Machine Learning Program" />
-                <h3>Machine Learning</h3>
-                <p>Build and deploy intelligent models. Explore machine learning algorithms, model training, and deployment. Use popular libraries like TensorFlow and scikit-learn. Understand the applications and ethics of AI.</p>
-                <table>
-                    <tr>
-                        <td class="table-label">Duration</td>
-                        <td>8 months</td>
-                    </tr>
-                    <tr>
-                        <td class="table-label">Cost</td>
-                        <td>450,000 NGN</td>
-                    </tr>
-                </table>
-            </a>
-        </div>
-    </div>
+            <article class="module">
+              <h3>Data Analytics</h3>
+              <p>Python · Pandas · SQL · Visualization · Dashboards</p>
+              <table>
+                <tr><td class="table-label">Duration</td><td>4 months</td></tr>
+                <tr><td class="table-label">Cost</td><td>₦240,000</td></tr>
+              </table>
+            </article>
 
-    <h2 class="header">Techcurious for Corporate Needs</h2>
-    <div class="section fade-in">
-        <img src="assets/img/network.jpg" alt="The convener of Techcurious">
-        <div class="list">
-            <p>Do you manage a firm or school, and would love to equip your staff or student with up-to-date tech skills?
-            There's massivr discount for you</p>
+            <article class="module">
+              <h3>Machine Learning</h3>
+              <p>Supervised/Unsupervised · scikit-learn · TensorFlow · MLOps basics</p>
+              <table>
+                <tr><td class="table-label">Duration</td><td>8 months</td></tr>
+                <tr><td class="table-label">Cost</td><td>₦450,000</td></tr>
+              </table>
+            </article>
+
+          </div>
+        </section>
+
+        <section class="card section" aria-labelledby="corp">
+          <div class="discounts">
+            <h4 id="corp">Techcurious for Corporate</h4>
+            <p class="link-muted">Up-skill teams with tailored cohorts and on-site workshops. Discounts available for bulk enrollments:</p>
             <ul>
-                <li class="list-item"><i class="fas fa-users"></i> 10 trainees: 10% discount</li>
-                <li class="list-item"><i class="fas fa-users"></i> 25 trainees: 15% discount</li>
-                <li class="list-item"><i class="fas fa-users"></i> 50 trainees: 20% discount</li>
-                <li class="list-item"><i class="fas fa-users"></i> Above 50 trainees: Send a Message</li>
+              <li>10 trainees — 10% discount</li>
+              <li>25 trainees — 15% discount</li>
+              <li>50+ trainees — Contact for custom pricing</li>
             </ul>
+            <p style="margin-top:12px"><strong>Contact:</strong> <a href="mailto:hello@crintexsolutions.com">hello@crintexsolutions.com</a></p>
+          </div>
+          <img src="assets/img/network.jpg" alt="Corporate training" loading="lazy"/>
+        </section>
+
+        <section class="card" style="margin-top:18px">
+          <h4>Monthly Installments</h4>
+          <p class="link-muted">Prefer to pay over time? We offer secure monthly payment plans to make learning more accessible. Choose a plan and follow the secure Paystack link for installments.</p>
+          <p><a class="cta" href="https://paystack.com/pay/techcuriousinstallments" target="_blank" rel="noopener">Pay monthly</a></p>
+        </section>
+
+        <section class="card curriculum" aria-label="Curriculum viewer">
+          <h4>Curriculum overview</h4>
+          <label for="select-curriculum" class="link-muted">Select curriculum</label>
+          <select id="select-curriculum" aria-label="Select curriculum" onchange="showCurriculum(this.value)">
+            <option value="assets/files/web_curriculum.pdf">Web Development Curriculum</option>
+            <option value="assets/files/ds_curriculum.pdf">Data Analytics Curriculum</option>
+            <option value="assets/files/ml_curriculum.pdf">Machine Learning Curriculum</option>
+          </select>
+
+          <div id="curriculum-container" style="margin-top:12px"></div>
+        </section>
+
+      </main>
+
+      <aside>
+        <div class="card image-container">
+          <img src="assets/img/techcurious-hero.png" alt="Techcurious preview" loading="lazy">
+          <p class="tag" style="margin-top:12px">Cohort starts soon — limited seats</p>
+          <div style="margin-top:12px;display:flex;gap:8px">
+            <a class="cta" href="https://paystack.com/pay/techcuriousweb" target="_blank" rel="noopener">Enroll in Web</a>
+            <a class="link-muted" href="#curriculum">See curriculum</a>
+          </div>
         </div>
-    </div>
-    
-    <h2 class="header">MONTHLY INSTALLMENTS</h2>
-    <div class="section fade-in">
-        <div class="list">
-            <h3>Affordable Learning Through Monthly Subscriptions</h3>
-            <p>Personal development plans are best pursued in manageable modules. Traditional one-time payment plans can 
-                appear bogus, often resulting in abandoned goals. Monthly subscriptions provide a more 
-                accessible and cost-effective solution, enabling you to spread the cost of your learning journey. 
-                This approach fosters consistent engagement and progress, keeping you motivated and on track to reach 
-                your full potential.</p>
-            <h3>Ready to embark on your journey?</h3>
-            <p>Make your secure monthly payment and gain access to a wealth of personal development sessions 
-                <a href="https://paystack.com/pay/techcuriousinstallments">here</a>.</p>
+
+        <div class="card" style="margin-top:16px">
+          <h4>Quick FAQs</h4>
+          <p class="link-muted" style="margin:0">Mentorship, project review, and certificate included. Classes are recorded for members who miss sessions.</p>
         </div>
-        <img src="assets/img/building_block.jpg" id="image1" alt="training building blocks">
-    </div>
-    
-    <div class="curriculum-wrapper">
-        <h2>Curriculum Overview</h2>
-        <div>
-            <label for="select-curriculum">Select Curriculum:</label>
-            <select id="select-curriculum" onchange="showCurriculum(this.value)">
-                <option value="assets/files/ds_curriculum.pdf">Data Science Curriculum</option>
-                <option value="assets/files/web_curriculum.pdf">Web Development Curriculum</option>
-            </select>
-        </div><br />
-        <div id="curriculum-container"></div>
+
+      </aside>
     </div>
 
-    <div class="footer">
-        <p>&copy; 2024<br />Crintex Solutions LTD</p>
-    </div>
+    <div class="footer">&copy; 2025 Crintex Solutions LTD · TechCurious</div>
+  </div>
 
-    <script>
-        function showCurriculum(pdfPath) {
-            // Check if the selected PDF is allowed
-            const allowedPDFs = ["assets/files/ds_curriculum.pdf", "assets/files/web_curriculum.pdf"];
-            if (allowedPDFs.includes(pdfPath)) {
-                document.getElementById('curriculum-container').innerHTML = `<iframe src="${pdfPath}" width="100%" height="500px"></iframe>`;
-            } 
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            showCurriculum("assets/files/ds_curriculum.pdf");
-        });
-    </script>
+  <script>
+    const allowed = ['assets/files/web_curriculum.pdf','assets/files/ds_curriculum.pdf','assets/files/ml_curriculum.pdf'];
+    function showCurriculum(path){
+      if(!allowed.includes(path)) return;
+      const container = document.getElementById('curriculum-container');
+      container.innerHTML = `<iframe src="${path}" title="Curriculum PDF" loading="lazy"></iframe>`;
+    }
+    // init
+    document.addEventListener('DOMContentLoaded', ()=>showCurriculum('assets/files/web_curriculum.pdf'));
+  </script>
 </body>
-<script src="mijs.js"></script>
-
 </html>
